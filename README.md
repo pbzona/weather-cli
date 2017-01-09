@@ -8,6 +8,7 @@ API](https://developers.google.com/maps/).
 
 1.  Make sure you're using NodeJS v6.9.x: `node -v`.
 2.  Clone this repository to a location of your choosing: `git clone
+    https://github.com/pbzona/weather-cli.git`.
 3.  Run `npm install` to get the Node dependency packages.
 
 ### Dark Sky API Key
@@ -15,9 +16,7 @@ API](https://developers.google.com/maps/).
 You'll need a Dark Sky API key to make calls to the weather service. To get
 one, sign up [here](https://darksky.net/dev/). 
 
-The API key will need to be added in `app-promise.js` or
-`weather-dir/weather.js`, depending on how you want to run the app, as the 
-**apiKey** variable. In a future release, this will be simplified.
+Once you have it, set your API key in `secrets/apikey.js`.
 
 Your first 1000 API calls each day are free. This is intended to be a personal
 application, so the free calls should be more than sufficient.
