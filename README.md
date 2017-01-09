@@ -39,5 +39,5 @@ Values returned are:
 -   **Feels like**: Apparent temperature based on wind, humidity, etc.
 -   **Forecast**: Predicted weather patterns for the next few hours
 
-[![Powered by Dark
-Sky](https://darksky.net/dev/img/attribution/poweredby-oneline.png)(https://darksky.net/poweredby/)
+![Powered by Dark
+Sky](https://darksky.net/dev/img/attribution/poweredby-oneline.png)
