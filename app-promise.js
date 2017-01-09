@@ -1,3 +1,4 @@
+const fs = require('fs');
 const yargs = require('yargs');
 const axios = require('axios');
 
@@ -6,7 +7,7 @@ var {apiKey} = require('./secrets/apikey');
 const argv = yargs
     .options({
         a: {
-            demand: true,
+            //demand: true,
             alias: 'address',
             describe: 'Address to search for',
             string: true
@@ -16,7 +17,22 @@ const argv = yargs
     .alias('help', 'h')
     .argv;
 
-var encodedAddress = encodeURIComponent(argv.address);
+// if no address specified, use the last address given
+var address;
+var overwriteAddress;
+var options = {
+    encoding: 'utf-8'
+};
+
+if (!argv.address) {
+    address = fs.readFileSync('./address.js', options)
+    overwriteAddress = false; 
+} else {
+    address = argv.address;
+    overwriteAddress = true;
+};
+
+var encodedAddress = encodeURIComponent(address);
 var geocodeURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`;
 
 axios.get(geocodeURL).then((response) => {
@@ -51,3 +67,8 @@ axios.get(geocodeURL).then((response) => {
         console.log(e.message);
     }    
 });
+
+// saves the address to the file for next time, if needed
+if (overwriteAddress) {
+    fs.writeFileSync('./address.js', address, options);
+};
