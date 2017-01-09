@@ -1,6 +1,6 @@
 const request = require('request');
 
-var apiKey = 'your Dark Sky API key';
+var {apiKey} = require('./../secrets/apikey');
 
 var getWeather = (lat, lng, callback) => {
     request({

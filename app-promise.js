@@ -1,6 +1,8 @@
 const yargs = require('yargs');
 const axios = require('axios');
 
+var {apiKey} = require('./secrets/apikey');
+
 const argv = yargs
     .options({
         a: {
@@ -16,8 +18,6 @@ const argv = yargs
 
 var encodedAddress = encodeURIComponent(argv.address);
 var geocodeURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`;
-
-var apiKey = 'your Dark Sky API key';
 
 axios.get(geocodeURL).then((response) => {
     if (response.data.status === 'ZERO_RESULTS') {
