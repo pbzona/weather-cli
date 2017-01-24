@@ -1,13 +1,13 @@
-var format = (response) => {
-    var currentWeather = response.data.currently.summary;
-    var temperature = response.data.currently.temperature;
-    var feelsLike = response.data.currently.apparentTemperature;
-    var forecast = response.data.hourly.summary;
+const returnData = require('./data');
 
-    console.log(`Weather: ${currentWeather}`);
-    console.log(`Temperature: ${temperature}\xB0 F`);
-    console.log(`Feels Like: ${feelsLike}\xB0 F`);
-    console.log(`Forecast: ${forecast}`);
+var format = (response, options) => {
+    returnData.basicWeather(response);
+    if (options.v || options.today) {
+        returnData.verboseWeather(response);
+    }
+    if (options.r || options.rain) {
+        returnData.willItRain(response);
+    }
     console.log('=================');
     console.log('Powered by Dark Sky: https://darksky.net/poweredby/');
 };

@@ -27,24 +27,23 @@ To run the program:
 
 -   `node app.js -a <location>`
 
-The location can be a street and city, full address, or just a ZIP code. It's
-parsed through Google Maps, so if you can type it into their site and get a
-result, you can get one here. Searches are saved in `config/address.txt`, so if
-you don't specify a location with the `-a` flag, you'll get weather for the
-last location you searched for.
+The `-a` flag specifies a location, which can be a street and city, full address,
+or just a ZIP code. The location isn't mandatory; if you don't provide one,
+the app will just use the last location you searched for.
 
-Values returned are:
+The default values are:
 
 -   **Location**: The full requested location in a nice format
 -   **Weather**: Description of current weather
 -   **Temperature**: The current actual temperature
 -   **Feels like**: Apparent temperature based on wind, humidity, etc.
--   **Forecast**: Predicted weather patterns for the next few hours
 
-## To Do...?
+## Options
 
--   Find out when it's supposed to rain
--   Hi/lo temperature and forecast
+Use these options to get custom weather data:
+
+-   `-t, --today` - Gives more information for the daily weather, including the high and low temperatures, humidity, and forecast.
+-   `-r, --rain` - Will it rain today? Use this flag to find out.
 
 ![Powered by Dark
 Sky](https://darksky.net/dev/img/attribution/poweredby-oneline.png)
