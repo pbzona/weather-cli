@@ -11,7 +11,7 @@ var basicWeather = (response) => {
     console.log(`Feels Like: ${feelsLike}\xB0 F`);
 };
 
-var verboseWeather = (response) => {
+var dailyWeather = (response) => {
     var forecast = response.data.hourly.summary;
     var todayLow = response.data.daily.data[0].temperatureMin;
     var todayHigh = response.data.daily.data[0].temperatureMax;
@@ -24,6 +24,51 @@ var verboseWeather = (response) => {
     console.log(`Today's Low: ${todayLow}\xB0 F`);
     console.log(`Today's High: ${todayHigh}\xB0 F`);
     console.log(`Humidity: ${humidity * 100}%`);
+};
+
+var weeklyWeather = (response) => {
+    console.log('=================');
+    console.log('    This week    ');
+    console.log('=================');
+
+    var today = new Date(response.data.daily.data[0].time * 1000).getDay();
+
+    var weekday = new Array(7);
+    weekday[0] = 'Sunday    ';
+    weekday[1] = 'Monday    ';
+    weekday[2] = 'Tuesday   ';
+    weekday[3] = 'Wednesday ';
+    weekday[4] = 'Thursday  ';
+    weekday[5] = 'Friday    ';
+    weekday[6] = 'Saturday  ';
+
+    var getStats = (i) => {
+        var dayLow = response.data.daily.data[i].temperatureMin.toFixed();
+        var dayHigh = response.data.daily.data[i].temperatureMin.toFixed();
+        var rainProb = response.data.daily.data[i].precipProbability * 100;
+
+        return {dayLow, dayHigh, rainProb};
+    };
+
+    for (var i = today; i < 7; i++) {
+        var stats = getStats(i);
+        var day;
+        if (i == today) {
+            day = 'Today     ';
+        } else if (i == today + 1) {
+            day = 'Tomorrow  ';
+        } else {
+            day = weekday[i];
+        }
+        console.log(`${day} - Lo: ${stats.dayLow}\xB0F   Hi: ${stats.dayHigh}\xB0F   Rain: ${stats.rainProb}%`);
+        if (i == 6 && today > 0) {
+            for (var j = 0; j < today; j++) {
+                stats = getStats(j);
+                day = weekday[j];
+                console.log(`${day} - Lo: ${stats.dayLow}\xB0F   Hi: ${stats.dayHigh}\xB0F   Rain: ${stats.rainProb}%`);
+            }
+        }
+    }
 };
 
 var willItRain = (response) => {
@@ -60,7 +105,9 @@ var willItRain = (response) => {
     console.log('  Will it rain?  ');
     console.log('=================');
     console.log(`${answer}`);
-    console.log(`There's ${qualifier}a ${rainProb}% chance of rain.`);
+    if (rainProb > 0) {
+        console.log(`There's ${qualifier}a ${rainProb}% chance of rain.`);
+    };
 };
 
-module.exports = {basicWeather, verboseWeather, willItRain};
+module.exports = {basicWeather, dailyWeather, weeklyWeather, willItRain};

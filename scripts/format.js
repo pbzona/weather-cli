@@ -2,14 +2,17 @@ const returnData = require('./data');
 
 var format = (response, options) => {
     returnData.basicWeather(response);
-    if (options.v || options.today) {
-        returnData.verboseWeather(response);
+    if (options.d || options.daily) {
+        returnData.dailyWeather(response);
+    }
+    if (options.w || options.week) {
+        returnData.weeklyWeather(response);
     }
     if (options.r || options.rain) {
         returnData.willItRain(response);
     }
     console.log('=================');
-    console.log('Powered by Dark Sky: https://darksky.net/poweredby/');
+    console.log('Powered by Dark Sky');
 };
 
 var handleFormatError = (e) => {
