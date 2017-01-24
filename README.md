@@ -2,7 +2,7 @@
 
 Simple weather command line tool powered by [Dark
 Sky](https://darksky.net/poweredby/) and [Google Maps
-API](https://developers.google.com/maps/). 
+API](https://developers.google.com/maps/).
 
 ## Installation
 
@@ -14,22 +14,24 @@ API](https://developers.google.com/maps/).
 ### Dark Sky API Key
 
 You'll need a Dark Sky API key to make calls to the weather service. To get
-one, sign up [here](https://darksky.net/dev/). 
+one, sign up [here](https://darksky.net/dev/).
 
-Once you have it, set your API key in `secrets/apikey.js`.
+Once you have it, set your API key in `config/secrets.js`.
 
-Your first 1000 API calls each day are free. This is intended to be a personal
+Your first 1000 API calls each day are free. This is a personal
 application, so the free calls should be more than enough.
 
 ## Usage
 
 To run the program:
 
--   `node app.js`
+-   `node app.js -a <location>`
 
-Use the `-a` flag with an address string or ZIP code to specify the location
-for which you'd like to receive weather data. If you don't specify a location,
-you'll get weather for the last location you searched for.
+The location can be a street and city, full address, or just a ZIP code. It's
+parsed through Google Maps, so if you can type it into their site and get a
+result, you can get one here. Searches are saved in `config/address.txt`, so if
+you don't specify a location with the `-a` flag, you'll get weather for the
+last location you searched for.
 
 Values returned are:
 
@@ -38,6 +40,11 @@ Values returned are:
 -   **Temperature**: The current actual temperature
 -   **Feels like**: Apparent temperature based on wind, humidity, etc.
 -   **Forecast**: Predicted weather patterns for the next few hours
+
+## To Do...?
+
+-   Find out when it's supposed to rain
+-   Hi/lo temperature and forecast
 
 ![Powered by Dark
 Sky](https://darksky.net/dev/img/attribution/poweredby-oneline.png)
