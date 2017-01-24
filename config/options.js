@@ -4,9 +4,14 @@ var yargsOptions = {
         describe: 'Address to search for',
         string: true
     },
-    t: {
-        alias: 'today',
+    d: {
+        alias: 'daily',
         describe: 'Weather for today',
+        boolean: true
+    },
+    w: {
+        alias: 'weekly',
+        describe: 'Weather for the week',
         boolean: true
     },
     r: {

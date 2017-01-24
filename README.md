@@ -31,9 +31,8 @@ The `-a` flag specifies a location, which can be a street and city, full address
 or just a ZIP code. The location isn't mandatory; if you don't provide one,
 the app will just use the last location you searched for.
 
-The default values are:
+Options for more detailed weather data are shown in the next section. If you don't use any options, you'll only get the current weather:
 
--   **Location**: The full requested location in a nice format
 -   **Weather**: Description of current weather
 -   **Temperature**: The current actual temperature
 -   **Feels like**: Apparent temperature based on wind, humidity, etc.
@@ -42,7 +41,8 @@ The default values are:
 
 Use these options to get custom weather data:
 
--   `-t, --today` - Gives more information for the daily weather, including the high and low temperatures, humidity, and forecast.
+-   `-d, --daily` - Gives more information for the daily weather, including the high and low temperatures, humidity, and forecast.
+-   `-w, --weekly` - Gets highs, lows, and chance of rain for the upcoming week.
 -   `-r, --rain` - Will it rain today? Use this flag to find out.
 
 ![Powered by Dark
