@@ -4,7 +4,7 @@ Simple weather command line tool powered by [Dark
 Sky](https://darksky.net/poweredby/) and [Google Maps
 API](https://developers.google.com/maps/).
 
-![Screenshot](http://imgur.com/bivPx9U)
+![Screenshot](https://i.imgur.com/bivPx9U.png?1)
 
 ## Installation
 
