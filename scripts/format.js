@@ -14,7 +14,7 @@ var format = (response, options) => {
         returnData.willItRain(response);
     }
     console.log('=================');
-    console.log('Powered by Dark Sky'.magenta);
+    console.log('Powered by Dark Sky'.magenta.bold);
 };
 
 var handleFormatError = (e) => {

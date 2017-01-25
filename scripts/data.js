@@ -8,7 +8,7 @@ var basicWeather = (response) => {
     var feelsLike = intensity(response.data.currently.apparentTemperature);
 
     console.log('=================');
-    console.log('     Current     '.yellow);
+    console.log('     Current     '.yellow.bold);
     console.log('=================');
     console.log(`Weather: ${currentWeather}`);
     console.log(`Temperature: ${temperature}\xB0 F`);
@@ -22,7 +22,7 @@ var dailyWeather = (response) => {
     var humidity = response.data.daily.data[0].humidity;
 
     console.log('=================');
-    console.log('      Today      '.yellow);
+    console.log('      Today      '.yellow.bold);
     console.log('=================');
     console.log(`Forecast: ${forecast}`);
     console.log(`Today's Low: ${todayLow}\xB0 F`);
@@ -32,7 +32,7 @@ var dailyWeather = (response) => {
 
 var weeklyWeather = (response) => {
     console.log('=================');
-    console.log('    This week    '.yellow);
+    console.log('    This week    '.yellow.bold);
     console.log('=================');
 
     var today = new Date(response.data.daily.data[0].time * 1000).getDay();
@@ -106,7 +106,7 @@ var willItRain = (response) => {
     }
 
     console.log('=================');
-    console.log('  Will it rain?  '.yellow);
+    console.log('  Will it rain?  '.yellow.bold);
     console.log('=================');
     console.log(`${answer}`);
     if (rainProb > 0 && rainProb < 100) {
