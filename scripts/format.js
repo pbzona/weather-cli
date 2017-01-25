@@ -1,3 +1,5 @@
+const colors = require('colors');
+
 const returnData = require('./data');
 
 var format = (response, options) => {
@@ -12,7 +14,7 @@ var format = (response, options) => {
         returnData.willItRain(response);
     }
     console.log('=================');
-    console.log('Powered by Dark Sky');
+    console.log('Powered by Dark Sky'.magenta);
 };
 
 var handleFormatError = (e) => {

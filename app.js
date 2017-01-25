@@ -1,4 +1,5 @@
 const yargs = require('yargs');
+const colors = require('colors');
 
 const {getLocation, getWeather} = require('./scripts/weather');
 const {format, handleFormatError} = require('./scripts/format');

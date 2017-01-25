@@ -1,10 +1,14 @@
+const colors = require('colors');
+
+const {intensity} = require('./utils');
+
 var basicWeather = (response) => {
     var currentWeather = response.data.currently.summary;
-    var temperature = response.data.currently.temperature;
-    var feelsLike = response.data.currently.apparentTemperature;
+    var temperature = intensity(response.data.currently.temperature);
+    var feelsLike = intensity(response.data.currently.apparentTemperature);
 
     console.log('=================');
-    console.log('     Current     ');
+    console.log('     Current     '.yellow);
     console.log('=================');
     console.log(`Weather: ${currentWeather}`);
     console.log(`Temperature: ${temperature}\xB0 F`);
@@ -13,12 +17,12 @@ var basicWeather = (response) => {
 
 var dailyWeather = (response) => {
     var forecast = response.data.hourly.summary;
-    var todayLow = response.data.daily.data[0].temperatureMin;
-    var todayHigh = response.data.daily.data[0].temperatureMax;
+    var todayLow = intensity(response.data.daily.data[0].temperatureMin);
+    var todayHigh = intensity(response.data.daily.data[0].temperatureMax);
     var humidity = response.data.daily.data[0].humidity;
 
     console.log('=================');
-    console.log('      Today      ');
+    console.log('      Today      '.yellow);
     console.log('=================');
     console.log(`Forecast: ${forecast}`);
     console.log(`Today's Low: ${todayLow}\xB0 F`);
@@ -28,7 +32,7 @@ var dailyWeather = (response) => {
 
 var weeklyWeather = (response) => {
     console.log('=================');
-    console.log('    This week    ');
+    console.log('    This week    '.yellow);
     console.log('=================');
 
     var today = new Date(response.data.daily.data[0].time * 1000).getDay();
@@ -43,9 +47,9 @@ var weeklyWeather = (response) => {
     weekday[6] = 'Saturday  ';
 
     var getStats = (i) => {
-        var dayLow = response.data.daily.data[i].temperatureMin.toFixed();
-        var dayHigh = response.data.daily.data[i].temperatureMin.toFixed();
-        var rainProb = response.data.daily.data[i].precipProbability * 100;
+        var dayLow = intensity(response.data.daily.data[i].temperatureMin.toFixed());
+        var dayHigh = intensity(response.data.daily.data[i].temperatureMax.toFixed());
+        var rainProb = (response.data.daily.data[i].precipProbability * 100).toFixed();
 
         return {dayLow, dayHigh, rainProb};
     };
@@ -72,7 +76,7 @@ var weeklyWeather = (response) => {
 };
 
 var willItRain = (response) => {
-    var rainProb = response.data.daily.data[0].precipProbability * 100;
+    var rainProb = (response.data.daily.data[0].precipProbability * 100).toFixed();
     var answer;
     if (response.data.daily.data[0].precipType == 'rain') {
         if (rainProb == 0) {
@@ -102,11 +106,15 @@ var willItRain = (response) => {
     }
 
     console.log('=================');
-    console.log('  Will it rain?  ');
+    console.log('  Will it rain?  '.yellow);
     console.log('=================');
     console.log(`${answer}`);
-    if (rainProb > 0) {
-        console.log(`There's ${qualifier}a ${rainProb}% chance of rain.`);
+    if (rainProb > 0 && rainProb < 100) {
+        console.log(`There's ${qualifier}a ${rainProb}% chance of rain today.`);
+    } else if (rainProb == 0) {
+        console.log('It\'s not going to rain today.');
+    } else if (rainProb >= 100) {
+        console.log('It\'s going to rain today');
     };
 };
 
