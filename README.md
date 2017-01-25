@@ -37,6 +37,8 @@ Options for more detailed weather data are shown in the next section. If you don
 -   **Temperature**: The current actual temperature
 -   **Feels like**: Apparent temperature based on wind, humidity, etc.
 
+By default, temperatures have some basic styling properties. Anything over 80 degrees will be shown in red, and anything under 30 degrees will appear in blue. If you don't like this, add the `--no-color` flag to disable colors.
+
 ## Options
 
 Use these options to get custom weather data:

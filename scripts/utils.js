@@ -1,4 +1,5 @@
 const fs = require('fs');
+const colors = require('colors');
 
 // checks to see if an address was provided as an argument
 var checkAddress = (arg) => {
@@ -33,4 +34,15 @@ var overwriteAddress = (addressObject) => {
     }
 };
 
-module.exports = {checkAddress, getAddress, overwriteAddress};
+// checks a temperature and changes its color if it's extreme
+var intensity = (temperature) => {
+    if (temperature <= 30.00) {
+        return temperature.toString().cyan;
+    } else if (temperature >= 80.00) {
+        return temperature.toString().red;
+    } else {
+        return temperature.toString();
+    }
+}
+
+module.exports = {checkAddress, getAddress, overwriteAddress, intensity};

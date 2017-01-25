@@ -16,7 +16,7 @@ var getWeather = (geocodeURL, apiKey) => {
         var weatherURL = `https://api.darksky.net/forecast/${apiKey}/${lat},${lng}`;
 
         console.log('=================');
-        console.log(response.data.results[0].formatted_address);
+        console.log(response.data.results[0].formatted_address.green);
 
         return axios.get(weatherURL);
     });
