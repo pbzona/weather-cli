@@ -11,8 +11,8 @@ var basicWeather = (response) => {
     console.log('     Current     '.yellow.bold);
     console.log('=================');
     console.log(`Weather: ${currentWeather}`);
-    console.log(`Temperature: ${temperature}\xB0 F`);
-    console.log(`Feels Like: ${feelsLike}\xB0 F`);
+    console.log(`Temperature: ${temperature}\xB0F`);
+    console.log(`Feels Like: ${feelsLike}\xB0F`);
 };
 
 var dailyWeather = (response) => {
@@ -25,8 +25,8 @@ var dailyWeather = (response) => {
     console.log('      Today      '.yellow.bold);
     console.log('=================');
     console.log(`Forecast: ${forecast}`);
-    console.log(`Today's Low: ${todayLow}\xB0 F`);
-    console.log(`Today's High: ${todayHigh}\xB0 F`);
+    console.log(`Today's Low: ${todayLow}\xB0F`);
+    console.log(`Today's High: ${todayHigh}\xB0F`);
     console.log(`Humidity: ${humidity * 100}%`);
 };
 
