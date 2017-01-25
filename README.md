@@ -4,6 +4,8 @@ Simple weather command line tool powered by [Dark
 Sky](https://darksky.net/poweredby/) and [Google Maps
 API](https://developers.google.com/maps/).
 
+![Screenshot](http://imgur.com/bivPx9U)
+
 ## Installation
 
 1.  Make sure you're using NodeJS v6.9.x: `node -v`.
@@ -47,5 +49,4 @@ Use these options to get custom weather data:
 -   `-w, --weekly` - Gets highs, lows, and chance of rain for the upcoming week.
 -   `-r, --rain` - Will it rain today? Use this flag to find out.
 
-![Powered by Dark
-Sky](https://darksky.net/dev/img/attribution/poweredby-oneline.png)
+![Powered by Dark Sky](https://darksky.net/dev/img/attribution/poweredby-oneline.png)
