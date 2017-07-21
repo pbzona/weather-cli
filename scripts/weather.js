@@ -5,7 +5,7 @@ var getLocation = (address) => {
     return `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`;
 }
 
-var getWeather = (geocodeURL, apiKey) => {
+var getWeather = (geocodeURL) => {
     return axios.get(geocodeURL).then((response) => {
         if (response.data.status === 'ZERO_RESULTS') {
             throw new Error('Unable to find that address');
@@ -13,7 +13,7 @@ var getWeather = (geocodeURL, apiKey) => {
 
         var lat = response.data.results[0].geometry.location.lat;
         var lng = response.data.results[0].geometry.location.lng;
-        var weatherURL = `https://api.darksky.net/forecast/${apiKey}/${lat},${lng}`;
+        var weatherURL = `https://weather.philzona.net/${lat},${lng}`;
 
         console.log('=================');
         console.log(response.data.results[0].formatted_address.green);

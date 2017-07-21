@@ -1,7 +1,7 @@
 # Weather CLI
 
 Simple weather command line tool powered by [Dark
-Sky](https://darksky.net/poweredby/) and [Google Maps
+Sky](https://darksky.net/poweredby/) via `weather.philzona.net` and [Google Maps
 API](https://developers.google.com/maps/).
 
 ![Screenshot](https://i.imgur.com/bivPx9U.png?1)
@@ -12,16 +12,6 @@ API](https://developers.google.com/maps/).
 2.  Clone this repository to a location of your choosing: `git clone
     https://github.com/pbzona/weather-cli.git`.
 3.  Run `npm install` to get the Node dependency packages.
-
-### Dark Sky API Key
-
-You'll need a Dark Sky API key to make calls to the weather service. To get
-one, sign up [here](https://darksky.net/dev/).
-
-Once you have it, set your API key in `config/secrets.js`.
-
-Your first 1000 API calls each day are free. This is a personal
-application, so the free calls should be more than enough.
 
 ## Usage
 
@@ -39,7 +29,7 @@ Options for more detailed weather data are shown in the next section. If you don
 -   **Temperature**: The current actual temperature
 -   **Feels like**: Apparent temperature based on wind, humidity, etc.
 
-By default, temperatures have some basic styling properties. Anything over 80 degrees will be shown in red, and anything under 30 degrees will appear in blue. If you don't like this, add the `--no-color` flag to disable colors.
+By default, temperatures have some basic styling properties. Anything over 90 degrees will be shown in red, and anything under 30 degrees will appear in blue. If you don't like this, add the `--no-color` flag to disable colors.
 
 ## Options
 

@@ -38,7 +38,7 @@ var overwriteAddress = (addressObject) => {
 var intensity = (temperature) => {
     if (temperature <= 30.00) {
         return temperature.toString().cyan;
-    } else if (temperature >= 80.00) {
+    } else if (temperature >= 90.00) {
         return temperature.toString().red;
     } else {
         return temperature.toString();
