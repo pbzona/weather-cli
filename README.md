@@ -4,7 +4,7 @@ Simple weather command line tool powered by [Dark
 Sky](https://darksky.net/poweredby/) via `weather.philzona.net` and [Google Maps
 API](https://developers.google.com/maps/).
 
-![Screenshot](http://imgur.com/a/S6m4G)
+![Screenshot](http://imgur.com/Zoxz833.png)
 
 ## Installation
 
