@@ -13,7 +13,7 @@ var getWeather = (geocodeURL) => {
 
         var lat = response.data.results[0].geometry.location.lat;
         var lng = response.data.results[0].geometry.location.lng;
-        var weatherURL = `https://weather.philzona.net/${lat},${lng}`;
+        var weatherURL = `https://weather.phizon.io/${lat},${lng}`;
 
         console.log('=================');
         console.log(response.data.results[0].formatted_address.green);

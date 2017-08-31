@@ -1,7 +1,7 @@
 # Weather CLI
 
 Simple weather command line tool powered by [Dark
-Sky](https://darksky.net/poweredby/) via `weather.philzona.net` and [Google Maps
+Sky](https://darksky.net/poweredby/) via `weather.phizon.io` and [Google Maps
 API](https://developers.google.com/maps/).
 
 ![Screenshot](http://imgur.com/Zoxz833.png)
@@ -39,6 +39,6 @@ Use these options to get custom weather data:
 
 ## New Server Info
 
-To comply with the Dark Sky ToS, calls are now being routed through [my server](https://weather.philzona.net) in order to append the API key securely without forcing the user to create and implement their own. This obviously isn't ideal, but until I can add some authentication, don't abuse the route I'm hosting. After the first 1000 calls per day it'll just turn off, and I'm hoping that will be enough for the personal use this is intended for.
+To comply with the Dark Sky ToS, calls are now being routed through [my server](https://weather.phizon.io) in order to append the API key securely without forcing the user to create and implement their own. This obviously isn't ideal, but until I can add some authentication, don't abuse the route I'm hosting. After the first 1000 calls per day it'll just turn off, and I'm hoping that will be enough for the personal use this is intended for.
 
 ![Powered by Dark Sky](https://darksky.net/dev/img/attribution/poweredby-oneline.png)
