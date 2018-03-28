@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const colors = require('colors');
 
 // checks to see if an address was provided as an argument
@@ -16,7 +17,7 @@ var getAddress = (addressArg) => {
     var address;
     var overwrite;
     if (!addressArg) {
-        address = fs.readFileSync('./config/address.txt', options)
+        address = fs.readFileSync(path.join(__dirname, '../config/address.txt'), options)
         overwrite = false;
     } else {
         address = addressArg;
